@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 def run(cmd)
-  puts cmd
+  STDERR.puts "#{__FILE__}: #{cmd}"
   %x{#{cmd}}
 end
 
