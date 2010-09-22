@@ -38,6 +38,7 @@ origins.keys.sort.each do |branch|
   run("git checkout -t origin/#{branch}") unless heads[branch]
   run("git checkout #{branch}")
   run("git fetch origin")
+  sleep(3) # seconds, don't spam github and get blacklisted
 end
 
 heads, origins = ls_remote # again, now that we've fetched the updated hashes
@@ -46,6 +47,7 @@ origins.keys.sort.each do |branch|
   unless heads[branch] == origins[branch]
     run("git checkout #{branch}")
     run("git pull origin #{branch}")
+    sleep(3) # seconds, don't spam github and get blacklisted
     run("git-commit-notifier ~/git-commit-notifier.yml #{heads[branch]} #{origins[branch]} #{branch}")
   end
 end
