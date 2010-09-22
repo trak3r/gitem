@@ -33,6 +33,8 @@ def ls_remote
   [ heads, origins ]
 end
 
+while(true) do
+
 heads, origins = ls_remote # to get the list of branches
 
 origins.keys.each do |branch|
@@ -49,4 +51,8 @@ origins.keys.each do |branch|
     run("git pull origin #{branch}")
     run("git-commit-notifier ~/git-commit-notifier.yml #{heads[branch]} #{origins[branch]} #{branch}")
   end
+end
+
+sleep(300) # seconds
+
 end
