@@ -1,0 +1,5 @@
+Poor-man's post-commit diff e-mails.
+
+If you don't have the resources necessary to wire up either (a) push notifications from github, or (b) post-commit hooks on the remote repository, then this is the script for you.
+
+Just run it from the command line in a dedicated clone of the remote repository, and it will check for new commits every X minutes in *every* branch, and send you a pretty color-coded diff of each commit.
