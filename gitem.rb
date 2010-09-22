@@ -36,7 +36,7 @@ end
 heads, origins = ls_remote # to get the list of branches
 
 origins.keys.each do |branch|
-  run("git checkout -t origin/#{branch}")
+  run("git checkout -t origin/#{branch}") unless heads[branch]
   run("git checkout #{branch}")
   run("git fetch origin")
 end
