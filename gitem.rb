@@ -35,9 +35,11 @@ end
 
 while(true) do
 
+run("git reset --hard")
+
 heads, origins = ls_remote # to get the list of branches
 
-origins.keys.each do |branch|
+origins.keys.sort.each do |branch|
   run("git checkout -t origin/#{branch}") unless heads[branch]
   run("git checkout #{branch}")
   run("git fetch origin")
@@ -45,7 +47,7 @@ end
 
 heads, origins = ls_remote # again, now that we've fetched the updated hashes
 
-origins.keys.each do |branch|
+origins.keys.sort.each do |branch|
   unless heads[branch] == origins[branch]
     run("git checkout #{branch}")
     run("git pull origin #{branch}")
@@ -53,6 +55,6 @@ origins.keys.each do |branch|
   end
 end
 
-sleep(300) # seconds
+sleep(55) # seconds
 
 end
