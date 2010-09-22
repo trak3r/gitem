@@ -1,8 +1,5 @@
 #!/usr/bin/env ruby
 
-# gitem - git email
-# use git-commit-notifier gem to email git commit diffs
-
 def run(cmd)
   puts cmd
   %x{#{cmd}}
@@ -33,8 +30,6 @@ def ls_remote
   [ heads, origins ]
 end
 
-while(true) do
-
 run("git reset --hard")
 
 heads, origins = ls_remote # to get the list of branches
@@ -53,8 +48,4 @@ origins.keys.sort.each do |branch|
     run("git pull origin #{branch}")
     run("git-commit-notifier ~/git-commit-notifier.yml #{heads[branch]} #{origins[branch]} #{branch}")
   end
-end
-
-sleep(55) # seconds
-
 end
