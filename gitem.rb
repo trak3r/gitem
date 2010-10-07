@@ -38,7 +38,7 @@ origins.keys.sort.each do |branch|
   run("git checkout -t origin/#{branch}") unless heads[branch]
   run("git checkout #{branch}")
   run("git fetch origin")
-  sleep(3) # seconds, don't spam github and get blacklisted
+  sleep(11) # seconds, don't spam github and get blacklisted
 end
 
 heads, origins = ls_remote # again, now that we've fetched the updated hashes

@@ -9,5 +9,4 @@ end
 
 while(1) do
   run("#{Pathname.new(File.dirname(__FILE__)).realpath}/dirs.rb")
-  sleep(299) # seconds
 end
