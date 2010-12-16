@@ -37,7 +37,6 @@ heads, origins = ls_remote # to get the list of branches
 origins.keys.sort.each do |branch|
   run("git checkout -t origin/#{branch}") unless heads[branch]
   run("git checkout #{branch}")
-  run("git reset --hard origin/#{branch}")
   run("git fetch origin")
   sleep(11) # seconds, don't spam github and get blacklisted
 end
