@@ -49,5 +49,6 @@ origins.keys.sort.each do |branch|
     run("git pull origin #{branch}")
     sleep(3) # seconds, don't spam github and get blacklisted
     run("git-commit-notifier ~/git-commit-notifier.yml #{heads[branch]} #{origins[branch]} #{branch}")
+    run("git reset --hard origin/#{branch}")
   end
 end
